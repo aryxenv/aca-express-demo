@@ -1,16 +1,27 @@
-# Webslides template
+# Azure Container Apps Express deck
 
-React + Vite + Tailwind starter for building slide decks as web applications. Each slide can be a self-contained mini-app while sharing the presentation UI system in `src/components/ui`.
+An interactive, customer-facing presentation on **Azure Container Apps
+Express**, built as a web app with React, Vite, and Tailwind. Slides are live
+components, so the demos run right inside the deck.
 
-Inspired & driven by...
+## The story
 
-- Github Copilot App "Pick & Polish" feature.
-- Powerful models & reasoning of Github Copilot.
-- In-slide demos to deliver presentations in a unique & powerful way.
+Eight slides, in order:
+
+1. **ACA Express**: ship containers in seconds.
+2. **The setup tax**: what stands between an idea and a live URL today.
+3. **What is Express**: environmentless container, bring your image.
+4. **Cold-start race**: Express vs a Consumption environment, live from zero.
+5. **The numbers**: measured provisioning, deploy, and cold-start times.
+6. **When Express wins**: the scale-to-zero use case, with an honest "reach for Standard" boundary.
+7. **Room to grow**: outgrow Express into a standard environment on the same platform.
+8. **Get started**: public preview, regions, and a QR to the docs.
+
+Numbers come from the reference demo (cited to the blog); platform facts come
+from Microsoft Learn. Every claim carries an on-slide source link, and
+`presenter-notes.md` has the full talk track plus citations.
 
 ## Run locally
-
-### Client (Presentation)
 
 ```pwsh
 npm install
@@ -19,58 +30,38 @@ npm run dev
 
 Open http://localhost:5173.
 
-### Server (Optional)
+The deck is fully client-side. The optional FastAPI layer in `server/` is not
+used by the current slides; see `server/README.md` if you add server-backed
+demos.
 
-```pwsh
-uv sync
-uv run fastapi dev
-```
-
-Available at http://localhost:8000 (no config needed - automatically available on client)
-
-## Build and present
-
-Use the browser as the live deck and GitHub Copilot App as the authoring surface.
-Start locally, open http://localhost:5173, then ask Copilot for slide, layout,
-demo, copy, or theme changes.
-
-Presentation controls:
+## Present
 
 - **Left / Right arrows** move between slides.
-- **Spacebar** cycles interactive states inside the active slide.
+- **Spacebar** cycles interactive states inside a slide (for example, the
+  numbers rows).
 - **Swipe** moves between slides on phones.
 
-Repo skills in `.github/skills/` cover common deck work:
+The cold-start race, the animated metric bars, and the 24-hour traffic chart
+play on their own. They respect reduced-motion and fall back to a static state
+for exports.
 
-- **Add/Edit/Delete slides**: change the story without learning the file layout.
-- **Theming**: update palette and account logo.
-- **Integrate demo into slides**: map an app into the deck and backend.
-- **Update PPTX export**: verify native editable and image PowerPoint exports after slide changes.
+## Export
 
-## Export and share
+Use the footer **Export** menu.
 
-Use the footer **Export** menu for private files. Local file exports require the
-FastAPI server and save ignored artifacts in `exports/`; production exports
-download the file.
+| Option | Output |
+| --- | --- |
+| **PDF** | `webslides.pdf` |
+| **PowerPoint** | Editable `webslides.pptx` or image `webslides-img.pptx` |
 
-| Option | Availability | Output or action |
-| --- | --- | --- |
-| **PDF** | Always | `webslides.pdf` |
-| **PowerPoint** | Always | Editable `webslides.pptx` or image `webslides-img.pptx` |
-| **GitHub Pages** | Dev only | Publish a public static interactive deck |
-| **Azure** | Dev only | Deploy the interactive deck and FastAPI server |
-
-Azure deploys use:
-
-```pwsh
-azd up
-npm run azure:url
-```
+Local file exports need the FastAPI server and save ignored artifacts in
+`exports/`. Do not commit those.
 
 ## Project reference
 
 - Slides: `src/components/slides`
 - Deck order: `src/Presentation.tsx`
 - Shared UI: `src/components/ui`
-- Theme tokens: `src/index.css`
-- Backend routes: `server/`
+- Theme tokens (dark palette): `src/index.css`
+- Motion hooks: `src/hooks`
+- Presenter notes: `presenter-notes.md`
