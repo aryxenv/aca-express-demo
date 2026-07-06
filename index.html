@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>webslides template</title>
+    <title>ACA Express</title>
     <style>
+      html,
+      body {
+        background: #0a102a;
+      }
       #app-loader {
         position: fixed;
         inset: 0;
@@ -15,7 +19,7 @@
         align-items: center;
         justify-content: center;
         gap: 22px;
-        background: #ffffff;
+        background: #0a102a;
         opacity: 1;
         transition: opacity 0.5s ease;
         font-family:
@@ -45,14 +49,14 @@
       #app-loader .app-loader-x {
         font-size: 14px;
         font-weight: 600;
-        color: #9ca3af;
+        color: #8891b0;
       }
       #app-loader .app-loader-track {
         position: relative;
         width: 184px;
         height: 3px;
         border-radius: 999px;
-        background: #e5e7eb;
+        background: #202841;
         overflow: hidden;
       }
       #app-loader .app-loader-track::after {
@@ -63,7 +67,7 @@
         height: 100%;
         width: 40%;
         border-radius: 999px;
-        background: #111111;
+        background: #7227e3;
         animation: app-loader-slide 1.15s ease-in-out infinite;
       }
       #app-loader .app-loader-caption {
@@ -71,7 +75,7 @@
         font-weight: 600;
         letter-spacing: 0.22em;
         text-transform: uppercase;
-        color: #111111;
+        color: #b2bcd1;
       }
       @keyframes app-loader-slide {
         0% {
@@ -99,7 +103,7 @@
       <div class="app-loader-lockup">
         <img src="/microsoft.svg" alt="Microsoft" />
         <span class="app-loader-x" aria-hidden="true">&times;</span>
-        <img src="/account.svg" alt="Account" />
+        <img src="/account.png" alt="Azure Container Apps" />
       </div>
       <div class="app-loader-track" aria-hidden="true"></div>
       <span class="app-loader-caption">Loading</span>

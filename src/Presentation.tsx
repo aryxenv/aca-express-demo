@@ -1,10 +1,13 @@
 import type { ComponentType } from "react";
 import { useCallback, useEffect, useState } from "react";
-import { AgentDrivenAuthoring } from "@/components/slides/agent-driven-authoring/main";
-import { EmbeddedDemoWorkflow } from "@/components/slides/embedded-demo-workflow/main";
-import { PickPolishCustomization } from "@/components/slides/pick-polish-customization/main";
-import { Sharing } from "@/components/slides/sharing/main";
-import { WebslidesIntroduction } from "@/components/slides/webslides-introduction/main";
+import { ColdStartRace } from "@/components/slides/cold-start-race/main";
+import { ExpressTitle } from "@/components/slides/express-title/main";
+import { GetStarted } from "@/components/slides/get-started/main";
+import { GrowIntoStandard } from "@/components/slides/grow-into-standard/main";
+import { TheNumbers } from "@/components/slides/the-numbers/main";
+import { TheSetupTax } from "@/components/slides/the-setup-tax/main";
+import { UseCase } from "@/components/slides/use-case/main";
+import { WhatIsExpress } from "@/components/slides/what-is-express/main";
 import type { SlideProps } from "@/components/slides/types";
 import { Button } from "@/components/ui/button";
 import { ExportDialog } from "@/components/ui/export-dialog";
@@ -33,34 +36,52 @@ interface SlideDefinition {
 
 const slides: SlideDefinition[] = [
   {
-    id: "webslides-introduction",
-    label: "Webslides introduction",
-    Component: WebslidesIntroduction,
+    id: "express-title",
+    label: "Ship containers in seconds",
+    Component: ExpressTitle,
+    cycleItems: 0,
+  },
+  {
+    id: "the-setup-tax",
+    label: "The setup tax",
+    Component: TheSetupTax,
     cycleItems: 3,
   },
   {
-    id: "agent-driven-authoring",
-    label: "Agent-driven authoring",
-    Component: AgentDrivenAuthoring,
+    id: "what-is-express",
+    label: "What is Express",
+    Component: WhatIsExpress,
+    cycleItems: 0,
+  },
+  {
+    id: "cold-start-race",
+    label: "Cold-start race",
+    Component: ColdStartRace,
+    cycleItems: 0,
+  },
+  {
+    id: "the-numbers",
+    label: "The numbers",
+    Component: TheNumbers,
     cycleItems: 4,
   },
   {
-    id: "embedded-demo-workflow",
-    label: "Embedded demo workflow",
-    Component: EmbeddedDemoWorkflow,
-    cycleItems: 4,
+    id: "use-case",
+    label: "When Express wins",
+    Component: UseCase,
+    cycleItems: 0,
   },
   {
-    id: "pick-polish-customization",
-    label: "Pick and polish customization",
-    Component: PickPolishCustomization,
+    id: "grow-into-standard",
+    label: "Grow into Standard",
+    Component: GrowIntoStandard,
+    cycleItems: 0,
+  },
+  {
+    id: "get-started",
+    label: "Get started",
+    Component: GetStarted,
     cycleItems: 3,
-  },
-  {
-    id: "sharing",
-    label: "Sharing",
-    Component: Sharing,
-    cycleItems: 2,
   },
 ];
 
